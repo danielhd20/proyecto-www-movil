@@ -1,13 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Inicio from './components/Inicio';
 
-export default function App() {
+const myStyles = {
+  title: "Becas",
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: "#082032",
+  }
+}
+
+function App() {
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <Stack.Navigator>
+        <Stack.Screen name="Inicio" component={Inicio} 
+        options ={myStyles}/>
+      </Stack.Navigator>
   );
+}
+export default () => {
+  return (
+      <NavigationContainer>
+        <App/>
+      </NavigationContainer>
+      )
 }
 
 const styles = StyleSheet.create({
