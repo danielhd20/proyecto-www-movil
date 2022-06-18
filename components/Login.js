@@ -89,7 +89,6 @@ export default function Login(){
                 <Image style={styles.img} source={{ uri:  'https://creazilla-store.fra1.digitaloceanspaces.com/emojis/55470/graduation-cap-emoji-clipart-md.png'}}/>
                 <TextInput style={styles.input} onChangeText={text => setUsername(text)} placeholder="Usuario"  value={username}/>
                 <TextInput style={styles.input} secureTextEntry={true} onChangeText={text => setPassword(text)} placeholder="Contraseña" value={password}/>
-                <TextInput style={styles.input} secureTextEntry={true}  placeholder="Confirmar contraseña"/>
                 <View style={styles.btn}>
                     <Button style={{borderRadius: 30}} title="Registrarse" color="#272727" onPress={() => checkRegister()}/>
                 </View>

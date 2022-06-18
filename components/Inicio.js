@@ -40,7 +40,7 @@ export default function Inicio({navigation}) {
         )
       }
     }
-    const loadBecas = () => {
+    const loadBecas = async function(){
         fetch("https://backendbeca.herokuapp.com/beca/",{
             method: "GET"
         })
