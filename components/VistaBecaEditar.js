@@ -46,7 +46,7 @@ export default function VistaBecaEditar({navigation}) {
 
 
   return (
-        <View style={{marginBottom: 50}}>
+        <View style={styles.root}>
             <FlatList 
             data = {becas}
             renderItem = {({item}) => {
@@ -83,6 +83,10 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
-    backgroundColor: '#909090',
+    backgroundColor: '#a51b0b',
+  },
+  root: {
+    marginBottom: 50,
+    backgroundColor: '#505050',
   }
 });

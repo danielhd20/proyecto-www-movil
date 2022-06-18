@@ -34,7 +34,7 @@ useEffect(() => {
 
 
     return(
-        <View style={{marginBottom: 50}}>
+        <View style={styles.root}>
         <FlatList 
         data = {noticias}
         renderItem = {({item}) => {
@@ -57,5 +57,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#000000',
       color: '#fff',
       fontFamily: 'sans-serif-condensed',
-    }
+    },
+    root: {
+        marginBottom: 50,
+        backgroundColor: '#505050',
+      }
   });
