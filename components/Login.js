@@ -32,7 +32,8 @@ export default function Login(){
     const checkLogin  = function() {
         const user = users.find(user => user.username == username && user.password == password);
         if(user){
-            console.log("entra")
+            setUsername("");
+            setPassword("");
             myContext.setLogged(true);
             navigation.navigate('Inicio');
         }
