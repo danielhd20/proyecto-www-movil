@@ -18,7 +18,7 @@ export default function Login(){
     }, [mode])
 
     const loadUsers = async function() {
-        fetch("https://backendbeca.herokuapp.com/users/",{
+        fetch("https://backendbecamovil.herokuapp.com/users/",{
             method: "GET"
         })
       .then(response => response.json()) 
@@ -42,7 +42,7 @@ export default function Login(){
     const checkRegister = async function() {
        
         try {
-            const request = await fetch('https://backendbeca.herokuapp.com/users/', {
+            const request = await fetch('https://backendbecamovil.herokuapp.com/users/', {
             'method':'POST',
             headers: {
                 'Content-Type':'application/json',           
