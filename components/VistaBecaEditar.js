@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {FlatList, StyleSheet, Text, View } from 'react-native';
 import {Card, Button} from 'react-native-paper';
+import { FAB } from 'react-native-paper';
 
 
-export default function Inicio({navigation}) {
+export default function VistaBecaEditar({navigation}) {
     const [becas, setBecas] = useState([]);
     const [loading, setLoading] = useState(true);
 
-
+    useEffect(() => {
+      loadBecas();
+  }, [becas]);
+  
     const renderbecas = (item) => {
         return (
           <Card style={styles.cardStyle}>
@@ -16,8 +20,8 @@ export default function Inicio({navigation}) {
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria}</Text>
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Financiación: {item.financiacion}%</Text>
           <Card.Actions>
-          <Button style={styles.ButtonStyle} onPress={() => navigation.navigate('Detalles de la beca', item)}>
-          Ver detalles
+          <Button style={styles.ButtonStyle} onPress={() => navigation.navigate('EditarBeca', item)}>
+          Editar beca
           </Button>
           </Card.Actions>
           </Card>
@@ -37,9 +41,7 @@ export default function Inicio({navigation}) {
     .catch(error => console.log(error));
     }
 
-    useEffect(() => {
-        loadBecas();
-    }, [becas]);
+    
 
 
   return (
@@ -52,6 +54,12 @@ export default function Inicio({navigation}) {
             onRefresh = {() => loadBecas()} 
             refreshing = {loading}
             keyExtractor = {item => `${item.id}`} 
+            />
+
+            <FAB
+                icon="plus"
+                style={styles.fab}          
+                onPress={() => navigation.navigate('CrearBeca')}
             />
         </View>
   )
@@ -69,5 +77,11 @@ const styles = StyleSheet.create({
   ButtonStyle: {
     backgroundColor: '#000000',
   },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#909090',
+  }
 });
-

@@ -9,7 +9,7 @@ export default function Navbar () {
  <Appbar style={styles.bottom}>
    <Appbar.Action icon="home" onPress={() => navigation.navigate('Inicio')}/>
     <Appbar.Action icon="newspaper" onPress={() => navigation.navigate('Noticias')} />
-    <Appbar.Action icon="view-list" onPress={() => console.log('Pressed label')} />
+    <Appbar.Action icon="view-list" onPress={() => navigation.navigate('EditarBecas')} />
     <Appbar.Action icon="logout" onPress={() => console.log('Pressed label')} />
   </Appbar>
 );
