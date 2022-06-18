@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Inicio from './components/Inicio';
 import Api from './components/Apinews';
 import Navbar from './components/Navbar';
+import Detalle from './components/Detalle';
 const myStyles = {
   title: "Becas Ingenieria de Sistemas",
   headerTintColor: "white",
@@ -21,6 +22,8 @@ function App() {
 
         <Stack.Screen name="Noticias" component={Api} 
         options ={myStyles}/>
+
+        <Stack.Screen name="Detalles de la beca" component={Detalle}/>
       </Stack.Navigator>
   );
 }

@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, Text, View } from 'react-native';
 import {Card, Button} from 'react-native-paper';
 
 
-export default function Inicio() {
+export default function Inicio({navigation}) {
     const [becas, setBecas] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -16,7 +16,9 @@ export default function Inicio() {
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria}</Text>
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>financiacion: {item.financiacion}%</Text>
           <Card.Actions>
-          <Button style={styles.ButtonStyle}>Ver detalles</Button>
+          <Button style={styles.ButtonStyle} onPress={() => navigation.navigate('Detalles de la beca', item)}>
+          Ver detalles
+          </Button>
           </Card.Actions>
           </Card>
         )
@@ -41,7 +43,7 @@ export default function Inicio() {
 
 
   return (
-        <View>
+        <View style={{marginBottom: 50}}>
             <FlatList 
             data = {becas}
             renderItem = {({item}) => {
@@ -60,13 +62,12 @@ const styles = StyleSheet.create({
     marginRight: 40,
     marginLeft: 40,
     marginTop: 10,
-    marginBottom: 10,
     backgroundColor: '#000000',
     color: '#fff',
     fontFamily: 'sans-serif-condensed',
   },
   ButtonStyle: {
     backgroundColor: '#000000',
-  }
+  },
 });
 
