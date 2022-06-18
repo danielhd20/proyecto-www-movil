@@ -34,7 +34,7 @@ useEffect(() => {
 
 
     return(
-        <View>
+        <View style={{marginBottom: 50}}>
         <FlatList 
         data = {noticias}
         renderItem = {({item}) => {
