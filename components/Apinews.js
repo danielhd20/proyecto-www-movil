@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {FlatList, StyleSheet, Text, View } from 'react-native';
+import {FlatList, StyleSheet, Text, View, Linking } from 'react-native';
 import {Card} from 'react-native-paper';
 
 export default function Api(props){
@@ -11,7 +11,7 @@ const rendernews = (item) => {
     return (
         <Card style={styles.cardStyle}>
         <Card.Cover source={{ uri: item.multimedia[0].url}} />
-      <Text style= {{fontSize: 25, color: '#fff', fontFamily: 'sans-serif-condensed',}}>{item.title}</Text>
+      <Text style= {{fontSize: 25, color: '#fff', fontFamily: 'sans-serif-condensed',}} onPress={() => Linking.openURL(item.url)}>{item.title}</Text>
       <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>{item.abstract}</Text>
     </Card>
     )
