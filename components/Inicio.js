@@ -9,11 +9,12 @@ export default function Inicio({navigation}) {
 
 
     const renderbecas = (item) => {
+      if(item.categoria === "Nacional"){
         return (
           <Card style={styles.cardStyle}>
           <Card.Cover source={{ uri: 'https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg' }} />
-          <Text style= {{fontSize: 25, color: '#fff', fontFamily: 'sans-serif-condensed',}}>{item.nombre}</Text>
-          <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria}</Text>
+          <Text style= {{fontSize: 25, color: '#fff', fontFamily: 'sans-serif-condensed',}}>{item.nombre} 🎓</Text>
+          <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria} 🇨🇴 </Text>
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Financiación: {item.financiacion}%</Text>
           <Card.Actions>
           <Button icon="magnify" mode="contained" color="#a51b0b" labelStyle={{ color: "white", fontSize: 12}} onPress={() => navigation.navigate('Detalles de la beca', item)}>
@@ -22,6 +23,22 @@ export default function Inicio({navigation}) {
           </Card.Actions>
           </Card>
         )
+      }
+      else{
+        return (
+          <Card style={styles.cardStyle}>
+          <Card.Cover source={{ uri: 'https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg' }} />
+          <Text style= {{fontSize: 25, color: '#fff', fontFamily: 'sans-serif-condensed',}}>{item.nombre} 🎓</Text>
+          <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria} 🌎</Text>
+          <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Financiación: {item.financiacion}%</Text>
+          <Card.Actions>
+          <Button icon="magnify" mode="contained" color="#a51b0b" labelStyle={{ color: "white", fontSize: 12}} onPress={() => navigation.navigate('Detalles de la beca', item)}>
+          Ver detalles
+          </Button>
+          </Card.Actions>
+          </Card>
+        )
+      }
     }
     const loadBecas = () => {
         fetch("https://backendbeca.herokuapp.com/beca/",{
@@ -43,7 +60,7 @@ export default function Inicio({navigation}) {
 
 
   return (
-        <View style={{marginBottom: 50}}>
+        <View style={styles.root}>
             <FlatList 
             data = {becas}
             renderItem = {({item}) => {
@@ -69,5 +86,9 @@ const styles = StyleSheet.create({
   ButtonStyle: {
     backgroundColor: '#000000',
   },
+  root: {
+    marginBottom: 50,
+    backgroundColor: '#505050',
+  }
 });
 
