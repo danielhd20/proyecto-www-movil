@@ -44,7 +44,7 @@ export default function EditarBeca({route}){
         navigation.navigate('EditarBecas');
           
         }) // Especifica qué se hará con la información traida de la API (data)
-        .catch(error)
+        .catch()
     }
 
     function deleteItem(id) {
