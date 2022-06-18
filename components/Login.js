@@ -39,6 +39,27 @@ export default function Login(){
         }
     }
 
+    const checkRegister = async function() {
+       
+        try {
+            const request = await fetch('https://backendbeca.herokuapp.com/users/', {
+            'method':'POST',
+            headers: {
+                'Content-Type':'application/json',           
+            }, 
+            body:JSON.stringify({username: username, password: password})
+            }).then(() => {
+                Alert.alert("Usuario registrado exitosamente"); 
+                setMode(true);
+                setUsername("");
+                setPassword("");
+            })
+        } catch (error) {
+            console.log(error);
+        }          
+      
+
+    }
     if (mode) {  
         return (
             <ScrollView>
@@ -52,7 +73,7 @@ export default function Login(){
                 </View>
 
                 <Text style={styles.register}>¿No tienes una cuenta?
-                    <Text style={styles.innerText} onPress={() => setMode(false)}> Registrate.</Text>
+                    <Text style={styles.innerText} onPress={() => {setMode(false), setUsername(""), setPassword("")}}> Registrate.</Text>
                 </Text>
                 
             </View>
@@ -66,13 +87,14 @@ export default function Login(){
                 <View style={{backgroundColor: '#393939'}}>
                 <View style={styles.container}>      
                 <Image style={styles.img} source={{ uri:  'https://creazilla-store.fra1.digitaloceanspaces.com/emojis/55470/graduation-cap-emoji-clipart-md.png'}}/>
-                <TextInput style={styles.input} placeholder="Usuario"/>
-                <TextInput style={styles.input} secureTextEntry={true} placeholder="Contraseña"/>
+                <TextInput style={styles.input} onChangeText={text => setUsername(text)} placeholder="Usuario"  value={username}/>
+                <TextInput style={styles.input} secureTextEntry={true} onChangeText={text => setPassword(text)} placeholder="Contraseña" value={password}/>
+                <TextInput style={styles.input} secureTextEntry={true}  placeholder="Confirmar contraseña"/>
                 <View style={styles.btn}>
-                    <Button style={{borderRadius: 30}} title="Registrarse" color="#272727" onPress={() => checkLogin()}/>
+                    <Button style={{borderRadius: 30}} title="Registrarse" color="#272727" onPress={() => checkRegister()}/>
                 </View>
                 <Text style={styles.register}>¿Ya tienes una cuenta?
-                    <Text style={styles.innerText} onPress={() => setMode(true)}> Inicia sesión.</Text>
+                    <Text style={styles.innerText} onPress={() => {setMode(true), setUsername(""), setPassword("")}}> Inicia sesión.</Text>
                 </Text>                
             </View>
             </View>
