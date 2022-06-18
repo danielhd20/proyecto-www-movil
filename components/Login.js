@@ -74,8 +74,7 @@ export default function Login(){
 
                 <Text style={styles.register}>¿No tienes una cuenta?
                     <Text style={styles.innerText} onPress={() => {setMode(false), setUsername(""), setPassword("")}}> Registrate.</Text>
-                </Text>
-                
+                </Text>              
             </View>
             </View>
             </ScrollView>
