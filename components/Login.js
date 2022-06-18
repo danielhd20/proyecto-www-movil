@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     container: {
       //flex: 1,
       marginTop: '40%',
-      marginBottom: '41%',
+      marginBottom: '50%',
       marginHorizontal: 30,
       backgroundColor: '#C0C0C0',
       alignItems: 'center',
