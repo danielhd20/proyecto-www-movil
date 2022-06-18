@@ -106,7 +106,7 @@ export default function EditarBeca({route}){
             />
             <View style={styles.btn}>
                 <View style={styles.spc}>
-                    <Button style={styles.btn} title="Actualizar" onPress={() => updateBeca()} />
+                    <Button style={styles.btn} title="Actualizar"  onPress={() => updateBeca()} />
                 </View>
                 <View style={styles.spc}>
                 <Button style={styles.btn} color="#F63030" title="Eliminar" onPress={() => deleteItem(item.id)} />

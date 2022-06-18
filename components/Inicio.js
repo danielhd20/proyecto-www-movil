@@ -16,7 +16,7 @@ export default function Inicio({navigation}) {
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria}</Text>
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Financiación: {item.financiacion}%</Text>
           <Card.Actions>
-          <Button style={styles.ButtonStyle} onPress={() => navigation.navigate('Detalles de la beca', item)}>
+          <Button icon="magnify" mode="contained" color="#a51b0b" labelStyle={{ color: "white", fontSize: 12}} onPress={() => navigation.navigate('Detalles de la beca', item)}>
           Ver detalles
           </Button>
           </Card.Actions>

@@ -10,7 +10,7 @@ export default function VistaBecaEditar({navigation}) {
 
     useEffect(() => {
       loadBecas();
-  }, [becas]);
+  }, []);
   
     const renderbecas = (item) => {
         return (
@@ -20,7 +20,7 @@ export default function VistaBecaEditar({navigation}) {
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Categoría: {item.categoria}</Text>
           <Text style= {{fontSize: 15, color: '#fff', fontFamily: 'sans-serif-condensed',}}>Financiación: {item.financiacion}%</Text>
           <Card.Actions>
-          <Button style={styles.ButtonStyle} onPress={() => navigation.navigate('EditarBeca', item)}>
+          <Button icon="circle-edit-outline" mode="contained" color="#a51b0b" labelStyle={{ color: "white", fontSize: 12}} onPress={() => navigation.navigate('EditarBeca', item)}>
           Editar beca
           </Button>
           </Card.Actions>
@@ -34,6 +34,7 @@ export default function VistaBecaEditar({navigation}) {
       .then(response => response.json()) 
       .then((data)=>{
           const ordenadas = data.sort((a,b) => b.financiacion.localeCompare(a.financiacion))
+          loadBecas();
           setBecas(ordenadas);
           //console.log(ordenadas);
           setLoading(false);
