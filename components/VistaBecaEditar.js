@@ -27,19 +27,19 @@ export default function VistaBecaEditar({navigation}) {
           </Card>
         )
     }
-    const loadBecas = () => {
+    const loadBecas = async function() {
         fetch("https://backendbeca.herokuapp.com/beca/",{
             method: "GET"
         })
-    .then(response => response.json()) 
-    .then((data)=>{
-        const ordenadas = data.sort((a,b) => b.financiacion.localeCompare(a.financiacion))
-        setBecas(ordenadas);
-        //console.log(ordenadas);
-        setLoading(false);
-    }) 
-    .catch(error => console.log(error));
-    }
+      .then(response => response.json()) 
+      .then((data)=>{
+          const ordenadas = data.sort((a,b) => b.financiacion.localeCompare(a.financiacion))
+          setBecas(ordenadas);
+          //console.log(ordenadas);
+          setLoading(false);
+      }) 
+      .catch(error => console.log(error));
+      }
 
     
 

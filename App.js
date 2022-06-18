@@ -18,35 +18,35 @@ const myStyles = {
     }
   },
   noticias: {
-    title: "Becas Ingenieria de Sistemas",
+    title: "Noticias",
     headerTintColor: "white",
     headerStyle: {
       backgroundColor: "black",
     }
   },
   detalle: {
-    title: "Becas Ingenieria de Sistemas",
+    title: "Detalle de la beca",
     headerTintColor: "white",
     headerStyle: {
       backgroundColor: "black",
     }
   },
   VistaBecaEditar: {
-    title: "Becas Ingenieria de Sistemas",
+    title: "Gestión de becas",
     headerTintColor: "white",
     headerStyle: {
       backgroundColor: "black",
     }
   },
   editarBeca: {
-    title: "Becas Ingenieria de Sistemas",
+    title: "Editar beca",
     headerTintColor: "white",
     headerStyle: {
       backgroundColor: "black",
     }
   },
   crearBeca: {
-    title: "Becas Ingenieria de Sistemas",
+    title: "Crear beca",
     headerTintColor: "white",
     headerStyle: {
       backgroundColor: "black",
@@ -62,19 +62,19 @@ function App() {
         options ={myStyles.inicio}/>
 
         <Stack.Screen name="Noticias" component={Api} 
-        options ={myStyles}/>
+        options ={myStyles.noticias}/>
 
         <Stack.Screen name="Detalles de la beca" component={Detalle}
-        options ={myStyles}/>
+        options ={myStyles.detalle}/>
 
         <Stack.Screen name="EditarBecas" component={VistaBecaEditar}
-        options ={myStyles}/>
+        options ={myStyles.VistaBecaEditar}/>
 
         <Stack.Screen name="EditarBeca" component={EditarBeca}
-        options ={myStyles}/>
+        options ={myStyles.editarBeca}/>
 
         <Stack.Screen name="CrearBeca" component={CrearBeca}
-        options ={myStyles}/>
+        options ={myStyles.crearBeca}/>
       </Stack.Navigator>
   );
 }
