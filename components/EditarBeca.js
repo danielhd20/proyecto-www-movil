@@ -22,7 +22,7 @@ export default function EditarBeca({route}){
             pais: pais, 
             universidad: universidad, 
             requerimientos: requerimientos}
-        fetch("https://backendbeca.herokuapp.com/beca/"+item.id+"/",{
+        fetch("https://backendbecamovil.herokuapp.com/beca/"+item.id+"/",{
         method: "PUT",
         headers: {
         //'Accept': 'application/json',
@@ -49,7 +49,7 @@ export default function EditarBeca({route}){
 
     function deleteItem(id) {
         console.log(id);
-        fetch(`https://backendbeca.herokuapp.com/beca/${id}/`, {
+        fetch(`https://backendbecamovil.herokuapp.com/beca/${id}/`, {
           method:'DELETE',
           headers:{
             'Content-type':'application/json',
