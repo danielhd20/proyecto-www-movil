@@ -42,7 +42,7 @@ export default function EditarBeca({route}){
     }
 
     return (
-        <ScrollView>
+        <ScrollView style={styles.fondo}>
             <View style={styles.container}>
             <Text style={styles.title}>Nombre</Text>
             <TextInput
@@ -105,15 +105,17 @@ const styles = StyleSheet.create({
       //flex: 1,
       marginTop: 10,
       marginHorizontal: 10,
-      backgroundColor: '#fff',
+      backgroundColor: '#a51b0b',
       //alignItems: 'center',
       justifyContent: 'center',
+      borderRadius: 20
     },
     title: {
         marginHorizontal: 10,
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 10,
+        color: "white"
     },
     subtitle: {
         marginTop: 10,
@@ -125,6 +127,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         borderWidth: 1,
         padding: 10,
+        backgroundColor: "white"
     },
     btn: {
         marginTop: 20,
@@ -135,6 +138,9 @@ const styles = StyleSheet.create({
     },
     spc: {
         marginHorizontal: 5,
+    },
+    fondo: {
+        backgroundColor: "#505050"
     }
   
   });
