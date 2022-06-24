@@ -18,7 +18,7 @@ export default function Login(){
     }, [mode])
 
     const loadUsers = async function() {
-        fetch("http://127.0.0.1:8000/users/",{
+        fetch("https://backendbecamovil.herokuapp.com/users/",{
             method: "GET"
         })
       .then(response => response.json()) 
