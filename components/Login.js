@@ -18,7 +18,7 @@ export default function Login(){
     }, [mode])
 
     const loadUsers = async function() {
-        fetch("https://backendbecamovil.herokuapp.com/users/",{
+        fetch("http://127.0.0.1:8000/users/",{
             method: "GET"
         })
       .then(response => response.json()) 
@@ -39,8 +39,7 @@ export default function Login(){
         }
     }
 
-    const checkRegister = async function() {
-       
+    const checkRegister = async function() {    
         try {
             const request = await fetch('https://backendbecamovil.herokuapp.com/users/', {
             'method':'POST',
@@ -60,6 +59,7 @@ export default function Login(){
       
 
     }
+    
     if (mode) {  
         return (
             <ScrollView>
