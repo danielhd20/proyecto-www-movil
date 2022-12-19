@@ -28,7 +28,7 @@ export default function VistaBecaEditar({navigation}) {
         )
     }
     const loadBecas = async function() {
-        fetch("https://backendbecamovil.herokuapp.com/beca/",{
+        fetch("https://danielhd20.pythonanywhere.com/beca/",{
             method: "GET"
         })
       .then(response => response.json()) 

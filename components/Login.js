@@ -18,7 +18,7 @@ export default function Login(){
     }, [mode])
 
     const loadUsers = async function() {
-        fetch("https://backendbecamovil.herokuapp.com/users/",{
+        fetch("https://danielhd20.pythonanywhere.com/users/",{
             method: "GET"
         })
       .then(response => response.json()) 
@@ -37,11 +37,15 @@ export default function Login(){
             myContext.setLogged(true);
             navigation.navigate('Inicio');
         }
+        else{
+            Alert.alert("Usuario y/o contraseña incorrecta");
+        }
     }
 
     const checkRegister = async function() {    
+        if(username != "" && password != ""){
         try {
-            const request = await fetch('https://backendbecamovil.herokuapp.com/users/', {
+            const request = await fetch('https://danielhd20.pythonanywhere.com/users/', {
             'method':'POST',
             headers: {
                 'Content-Type':'application/json',           
@@ -56,7 +60,10 @@ export default function Login(){
         } catch (error) {
             console.log(error);
         }          
-      
+    }
+    else{
+        Alert.alert("Usuario y/o contraseña no valido");
+    }
 
     }
     

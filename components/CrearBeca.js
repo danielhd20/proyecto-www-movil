@@ -22,7 +22,7 @@ export default function EditarBeca({route}){
             universidad: universidad, 
             requerimientos: requerimientos}
 
-        fetch("https://backendbecamovil.herokuapp.com/beca/",{
+        fetch("https://danielhd20.pythonanywhere.com/beca/",{
         method  : "POST",
         headers: {
         'Accept': 'application/json',
