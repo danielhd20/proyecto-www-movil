@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Alert } from "react";
 import {FlatList, StyleSheet, Text, View } from 'react-native';
 import {Card, Button} from 'react-native-paper';
+import NetInfo from '@react-native-community/netinfo';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Inicio({navigation}) {
+    //const navigation = useNavigation();
     const [becas, setBecas] = useState([]);
     const [loading, setLoading] = useState(true);
-
 
     const renderbecas = (item) => {
       if(item.categoria === "Nacional"){
@@ -56,6 +58,14 @@ export default function Inicio({navigation}) {
 
     useEffect(() => {
         loadBecas();
+        NetInfo.fetch().then(state => {
+          if(state.isConnected){
+            //console.log(state);
+            Alert.alert("Conexión a internet perdida");
+            //navigation.navigate('Inicio')
+          }
+           
+        });
     }, [becas]);
 
 
